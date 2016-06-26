@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import FooterQuickMessages from './FooterQuickMessages';
 import FooterInput from './FooterInput';
 import FooterToggler from './FooterToggler';
@@ -34,10 +34,10 @@ export default class Footer extends Component {
       showToggler: true
     });
   }
-  render() {
+  render(){
     return (
       <footer>
-        { this.state.showQuickMessages ? <FooterQuickMessages clickAddMessage={this.clickAddMessage} list={[{text: "menj anyadba", key: 1},{text: "nem erek ra kurvara", key:2},{text: "kurodj meg", key: 3}]} /> : null }
+        { this.state.showQuickMessages ? <FooterQuickMessages clickAddMessage={this.clickAddMessage} list={[{text: 'menj anyadba', key: 1}, {text: 'nem erek ra kurvara', key:2}, {text: 'kurodj meg', key: 3}]} /> : null }
         { this.state.showInput ? <FooterInput quickMessagesTogglerClick={this.clickQuickMessages} clickAddMessage={this.clickAddMessage} /> : null }
         { this.state.showToggler ? <FooterToggler togglerClick={this.clickToggler} /> : null }
       </footer>

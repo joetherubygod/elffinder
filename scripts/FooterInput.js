@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 export default class Input extends Component {
   constructor(props){
     super(props);
     this.state = {
-      value: ""
+      value: ''
     };
     this.changeInput = this.changeInput.bind(this);
     this.clickAddMessage = this.clickAddMessage.bind(this);

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import SectionDate from './SectionDate';
 import SectionTable from './SectionTable';
 import SectionMessages from './SectionMessages';
@@ -15,7 +15,7 @@ export default class Section extends Component {
             {user.name}
           </td>
           <td>
-            { (user.id == that.props.user.id) ? <Availability available={user.available} /> : user.available ? "leszek" : "nem leszek" }
+            { (user.id === that.props.user.id) ? <Availability available={user.available} /> : user.available ? 'leszek' : 'nem leszek' }
           </td>
         </tr>
       );
@@ -24,7 +24,7 @@ export default class Section extends Component {
       <section>
         <SectionDate />
         <SectionTable userlist={userlist} />
-        <SectionMessages msgs={this.props.msgs} />
+        <SectionMessages isLoading={this.props.isLoading} msgs={this.props.msgs} />
       </section>
     );
   }
