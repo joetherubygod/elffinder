@@ -17,9 +17,9 @@ export default class Availability extends Component {
     return (
       <div>
         { this.state.available ?
-          <button className="btn btn-success" onClick={this.clickAvailable} >raerek</button>
+          <button className="btn btn-success" onClick={this.clickAvailable} >leszek</button>
         :
-          <button className="btn btn-danger" onClick={this.clickAvailable} >nem erek ra</button>
+          <button className="btn btn-danger" onClick={this.clickAvailable} >nem leszek</button>
         }
       </div>
     );

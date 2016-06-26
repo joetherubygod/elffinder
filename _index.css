@@ -25,32 +25,33 @@ header .profile {
 }
 
 section {
-
+  width: 75%;
+  margin: auto;
 }
 
 section .date {
-  width: 50%;
-  margin: auto;
+
   text-align: center;
 }
 
 section .table {
-  width: 50%;
-  margin: auto;
   text-align: center;
 }
 
 section .messages {
-  width: 50%;
-  margin: auto;
+
 }
 
-section hr {
+section .message {
+  padding-left: 5px;
+}
+
+hr:last-of-type {
+  width: 100px;
+}
+
+hr {
   width: 40px;
-}
-
-section hr:last-of-type {
-  display: none;
 }
 
 section table {
@@ -92,9 +93,6 @@ footer .input {
 
 footer .toggler {
   text-align: center;
-  position: fixed;
-  bottom: 0px;
-  border-top: 1px solid #cccccc;
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import QuickMessages from './QuickMessages';
-import Input from './Input';
-import Toggler from './Toggler';
+import FooterQuickMessages from './FooterQuickMessages';
+import FooterInput from './FooterInput';
+import FooterToggler from './FooterToggler';
 
 export default class Footer extends Component {
   constructor(props){
@@ -37,9 +37,9 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        { this.state.showQuickMessages ? <QuickMessages clickAddMessage={this.clickAddMessage} list={[{text: "menj anyadba", key: 1},{text: "nem erek ra kurvara", key:2},{text: "kurodj meg", key: 3}]} /> : null }
-        { this.state.showInput ? <Input quickMessagesTogglerClick={this.clickQuickMessages} clickAddMessage={this.clickAddMessage} /> : null }
-        { this.state.showToggler ? <Toggler togglerClick={this.clickToggler} /> : null }
+        { this.state.showQuickMessages ? <FooterQuickMessages clickAddMessage={this.clickAddMessage} list={[{text: "menj anyadba", key: 1},{text: "nem erek ra kurvara", key:2},{text: "kurodj meg", key: 3}]} /> : null }
+        { this.state.showInput ? <FooterInput quickMessagesTogglerClick={this.clickQuickMessages} clickAddMessage={this.clickAddMessage} /> : null }
+        { this.state.showToggler ? <FooterToggler togglerClick={this.clickToggler} /> : null }
       </footer>
     );
   }

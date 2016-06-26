@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
+import SectionDate from './SectionDate';
+import SectionTable from './SectionTable';
+import SectionMessages from './SectionMessages';
 import Availability from './Availability';
-import RenderMessages from './RenderMessages';
+
 
 export default class Section extends Component {
   render() {
@@ -19,20 +22,9 @@ export default class Section extends Component {
     });
     return (
       <section>
-        <div className="date">
-          <h2>szerda ???</h2>
-        </div>
-        <div className="table">
-          <table>
-            <tbody>
-              {userlist}
-            </tbody>
-          </table>
-        </div>
-        <div className="messages">
-          <h2>Uzenetek</h2>
-          <RenderMessages msgs={this.props.msgs} />
-        </div>
+        <SectionDate />
+        <SectionTable userlist={userlist} />
+        <SectionMessages msgs={this.props.msgs} />
       </section>
     );
   }
