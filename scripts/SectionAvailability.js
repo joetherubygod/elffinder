@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class Availability extends Component {
+export default class SectionAvailability extends Component {
   static propTypes = {
     available: React.PropTypes.bool
   };

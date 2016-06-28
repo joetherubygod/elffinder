@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 
 export default class Header extends Component {
-  static propTypes = {
-    user: React.PropTypes.array.isRequired
-  };
   render() {
     return (
       <header>
@@ -12,7 +9,7 @@ export default class Header extends Component {
         </div>
         <div className="profile">
           <p className="navbar-text">
-            <span className="glyphicon glyphicon-user" aria-hidden="true"></span> {this.props.user.name}
+            <span className="glyphicon glyphicon-user" aria-hidden="true"></span> kecs
           </p>
         </div>
       </header>

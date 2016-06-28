@@ -18,7 +18,7 @@ export default class Input extends Component {
       value: event.target.value
     });
   }
-  clickAddMessage(value){
+  clickAddMessage(){
     this.props.clickAddMessage(this.state.value);
   }
   render() {

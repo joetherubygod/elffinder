@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import RenderMessages from './RenderMessages';
+import SectionMessage from './SectionMessage';
 
 export default class SectionMessages extends Component {
   static propTypes = {
@@ -10,7 +10,7 @@ export default class SectionMessages extends Component {
     return (
       <div className="messages">
         <h2>Uzenetek</h2>
-        { this.props.isLoading ? 'site is loading' : <RenderMessages msgs={this.props.msgs} /> }
+        { this.props.isLoading ? 'site is loading' : <SectionMessage msgs={this.props.msgs} /> }
       </div>
     );
   }

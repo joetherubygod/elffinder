@@ -2,14 +2,13 @@ import React, {Component} from 'react';
 import SectionDate from './SectionDate';
 import SectionTable from './SectionTable';
 import SectionMessages from './SectionMessages';
-import Availability from './Availability';
+import SectionAvailability from './SectionAvailability';
 
 
 export default class Section extends Component {
   static propTypes = {
     isLoading: React.PropTypes.bool.isRequired,
-    msgs: React.PropTypes.object,
-    user: React.PropTypes.array,
+    msgs: React.PropTypes.array,
     userList: React.PropTypes.array
   };
   render() {
@@ -21,7 +20,7 @@ export default class Section extends Component {
           </td>
           <td>
             { (user.id === this.props.user.id) ?
-              <Availability available={user.available} /> : user.available ? 'leszek' : 'nem leszek' }
+              <SectionAvailability available={user.available} /> : user.available ? 'leszek' : 'nem leszek' }
           </td>
         </tr>
       );
