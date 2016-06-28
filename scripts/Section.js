@@ -6,16 +6,22 @@ import Availability from './Availability';
 
 
 export default class Section extends Component {
+  static propTypes = {
+    isLoading: React.PropTypes.bool.isRequired,
+    msgs: React.PropTypes.object,
+    user: React.PropTypes.array,
+    userList: React.PropTypes.array
+  };
   render() {
-    var that = this;
-    var userlist = this.props.userList.map(function(user){
+    let list = this.props.userList.map((user) => {
       return (
         <tr key={user.id}>
           <td>
             {user.name}
           </td>
           <td>
-            { (user.id === that.props.user.id) ? <Availability available={user.available} /> : user.available ? 'leszek' : 'nem leszek' }
+            { (user.id === this.props.user.id) ?
+              <Availability available={user.available} /> : user.available ? 'leszek' : 'nem leszek' }
           </td>
         </tr>
       );
@@ -23,7 +29,7 @@ export default class Section extends Component {
     return (
       <section>
         <SectionDate />
-        <SectionTable userlist={userlist} />
+        <SectionTable list={list} />
         <SectionMessages isLoading={this.props.isLoading} msgs={this.props.msgs} />
       </section>
     );

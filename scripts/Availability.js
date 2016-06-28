@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 export default class Availability extends Component {
+  static propTypes = {
+    available: React.PropTypes.bool
+  };
   constructor(props){
     super(props);
     this.state = {

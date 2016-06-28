@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 export default class Input extends Component {
+  static propTypes = {
+    clickAddMessage: React.PropTypes.func,
+    quickMessagesTogglerClick: React.PropTypes.func
+  };
   constructor(props){
     super(props);
     this.state = {
@@ -20,9 +24,15 @@ export default class Input extends Component {
   render() {
     return (
       <div className="input">
-        <div className="input-left"><button className="btn btn-default" onClick={this.props.quickMessagesTogglerClick} >uzenetek</button></div>
-        <div className="input-center"><input className="form-control" type="text" value={this.state.value} onChange={this.changeInput} /></div>
-        <div className="input-right"><button className="btn btn-default" onClick={this.clickAddMessage}>></button></div>
+        <div className="input-left">
+          <button className="btn btn-default" onClick={this.props.quickMessagesTogglerClick} >uzenetek</button>
+        </div>
+        <div className="input-center">
+          <input className="form-control" type="text" value={this.state.value} onChange={this.changeInput} />
+        </div>
+        <div className="input-right">
+          <button className="btn btn-default" onClick={this.clickAddMessage}>></button>
+        </div>
       </div>
     );
   }

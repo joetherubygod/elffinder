@@ -54,7 +54,11 @@ export default class App extends Component {
     return (
       <div>
         <Header user={this.state.user} />
-        <Section isLoading={this.state.isMessagesLoading} msgs={this.state.msgs} user={this.state.user} userList={this.state.userList} />
+        <Section
+          isLoading={this.state.isMessagesLoading}
+          msgs={this.state.msgs}
+          user={this.state.user}
+          userList={this.state.userList} />
         <Footer clickAddMessage={this.clickAddMessage} />
       </div>
     );
