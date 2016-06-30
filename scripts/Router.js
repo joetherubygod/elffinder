@@ -11,5 +11,8 @@ export default (
       <Route path="/content" component={Content}/>
       <Route path="/user/:userId" component={User}/>
     </Route>
+
+  <Route path="/login" component={Content}/>
+  <Route path="/register" component={Content}/>
   </Router>
 );

@@ -4,6 +4,8 @@ import Content from './Content';
 import User from './User';
 
 export default class App extends Component {
+
+  // mountnal loadold a usert
   render() {
     return (
       <div>

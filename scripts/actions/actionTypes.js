@@ -1,0 +1,3 @@
+export const LOAD_MESSAGES = 'LOAD_MESSAGES';
+export const NEW_MESSAGE = 'NEW_MESSAGE';
+export const MESSAGES_LOADING = 'MESSAGES_LOADING';
