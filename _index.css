@@ -1,7 +1,5 @@
 body {
   margin: 0;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 header {
@@ -22,12 +20,19 @@ header .title {
 }
 
 header .profile {
+  align-self: center;
+  text-align: center;
+}
 
+header .profile img {
+  border-radius: 50%;
+  height: 50%;
 }
 
 section {
-  width: 75%;
+  padding: 100px 0px 50px 0px;
   margin: auto;
+  width: 75%;
 }
 
 section .date {
@@ -114,36 +119,121 @@ footer input[type="text"] {
   width: 100%;
 }
 
+.user-page {
+  align-self: center;
+  margin: auto;
+  width: 75%;
+  height: 100%;
+  display: flex;
+}
+
+.user-page div:first-child {
+  align-self: center;
+  flex-grow: 1;
+}
+
+.user-page button:first-child {
+  margin-top: 15px;
+  float: left;
+}
+
+.user-page button {
+  margin-top: 15px;
+  float: right;
+}
+
+.l {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.l-container {
+  border: 1px solid black;
+  padding: 10px 10px 10px 10px;
+  align-self: center;
+  width: 50%;
+  margin: auto;
+}
+
+.l-body {
+  width: 100%;
+  display: table;
+}
+.l-body-row {
+  display: table-row;
+}
+.l-body-row div {
+  width: 50%;
+  text-align: center;
+  display: table-cell;
+  padding: 10px 10px 10px 10px;
+}
+
+.l-body-row input {
+  width: 100%;
+}
+
+.l-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.l-footer a {
+  padding-right: 15px;
+}
+
 @media screen and (max-width: 480px) {
-    section {
-      width: 90%;
-    }
 
-    footer .input {
-      flex-direction: column;
-    }
+  .input-container button:first-of-type {
+    float: none;
+  }
 
-    footer .input-left {
-      padding: 10px 10px 5px 10px;
-    }
+  .input-container button:last-of-type {
+    float: none;
+  }
 
-    footer .input-center {
-      padding: 5px 10px 5px 10px;
-    }
+  .input-container button {
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+  }
 
-    footer .input-right {
-      padding: 5px 10px 10px 10px;
-    }
+  section {
+    width: 90%;
+  }
 
-    footer button {
-      width: 100%;
-    }
+  footer .input {
+    flex-direction: column;
+  }
 
-    footer .quickmessages {
-      bottom: 120px;
-    }
+  footer .input-left {
+    padding: 10px 10px 5px 10px;
+  }
 
-    footer .toggler {
-      padding: 10px 0px 10px 0px;
-    }
+  footer .input-center {
+    padding: 5px 10px 5px 10px;
+  }
+
+  footer .input-right {
+    padding: 5px 10px 10px 10px;
+  }
+
+  footer button {
+    width: 100%;
+  }
+
+  footer .quickmessages {
+    bottom: 120px;
+  }
+
+  footer .toggler {
+    padding: 10px 0px 10px 0px;
+  }
+
+  .user-page {
+    align-self: center;
+    margin: auto;
+    width: 90%;
+  }
 }

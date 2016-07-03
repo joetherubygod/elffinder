@@ -5,16 +5,16 @@ const initialState = {
   isLoading: true
 };
 
-const messagesReducer = function(state = initialState, action){
+const messagesReducer = function (state = initialState, action){
   switch (action.type) {
-    case types.LOAD_MESSAGES:
+    case types.READ_MESSAGES:
       return {
         messages: action.messages,
         isLoading: false
       };
-    case types.NEW_MESSAGE:
-      var messages = [...state.messages, action.message];
-      return Object.assign({}, state, { messages: messages });
+      case types.CREATE_MESSAGE:
+        let messages = [...state.messages, action.message];
+        return Object.assign({}, state, { messages: messages });
 
     case types.MESSAGES_LOADING:
       return Object.assign({}, state, { isLoading: true });

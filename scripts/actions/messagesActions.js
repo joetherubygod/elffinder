@@ -1,22 +1,22 @@
 import * as types from './actionTypes';
 
 
-export function getMessages(messages){
+export function readMessagesAction(messages){
   return {
-    type: types.LOAD_MESSAGES,
+    type: types.READ_MESSAGES,
     messages: messages
+  };
+}
+
+export function createMessageAction(message){
+  return {
+    type: types.CREATE_MESSAGE,
+    message: message
   };
 }
 
 export function setLoadingState(){
   return {
     type: types.MESSAGES_LOADING
-  };
-}
-
-export function setNewMessage(message){
-  return {
-    type: types.NEW_MESSAGE,
-    message: message
   };
 }
