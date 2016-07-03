@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 
-export function creatUserAction(user){
+export function loginUserAction(user){
   return {
-    type: types.CREATE_USER,
+    type: types.LOGIN_USER,
     user: user
   };
 }
@@ -11,6 +11,12 @@ export function readUserAction(user){
   return {
     type: types.READ_USER,
     user: user
+  };
+}
+
+export function logoutUserAction() {
+  return {
+    type: types.LOGOUT_USER
   };
 }
 

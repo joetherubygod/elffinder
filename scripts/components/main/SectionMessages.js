@@ -5,7 +5,8 @@ export default class SectionMessages extends Component {
   // itt lesz userlisted is
   static propTypes = {
     isLoading: React.PropTypes.bool,
-    msgs: React.PropTypes.array
+    msgs: React.PropTypes.array,
+    userList: React.PropTypes.array
   };
   render() {
     return (

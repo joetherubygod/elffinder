@@ -10,12 +10,15 @@ const userReducer = function (state = initialState, action){
       return {
         user: action.user
       };
-    case types.CREATE_USER:
+    case types.LOGIN_USER:
       return {
         user: action.user
       };
+    case types.LOGOUT_USER:
+        console.log('loggin out');
+       return {};
     case types.UPDATE_USER:
-      let user = action.user;
+      let user = Object.assign({}, state.user, action.user);
       return Object.assign({}, state, { user: user });
   }
   return state;

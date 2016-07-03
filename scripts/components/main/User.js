@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {browserHistory} from 'react-router';
 import * as api from '../../api/api';
 import Header from './Header';
 
+
 class User extends Component {
+  static propTypes = {
+    user: React.PropTypes.object
+  };
   constructor(props){
     super(props);
     this.state = {
@@ -19,7 +24,6 @@ class User extends Component {
   componentWillReceiveProps(nextProps){
     this.setState({
       userNameValue: nextProps.user.name,
-      userPasswordValue: nextProps.user.password,
       userEmailValue: nextProps.user.email
     });
   }
@@ -28,7 +32,7 @@ class User extends Component {
     hash[stateName] = value.target.value;
     this.setState(hash);
   }
-  save() {
+  save(){
     if (this.state.userPasswordValue === this.state.userPasswordCValue) {
       let newUserData = {
         id: this.props.user.id,
@@ -36,10 +40,21 @@ class User extends Component {
         password: this.state.userPasswordValue,
         email: this.state.userEmailValue
       };
-      api.updateUser(newUserData);
+
+        api.updateUser(newUserData, () => {
+        browserHistory.push('/');
+      });
     }
   }
-  render() {
+  logout(){
+    api.logout(() => {
+      browserHistory.push('/login');
+    });
+  }
+  cancel(){
+    browserHistory.push('/');
+  }
+  render(){
     return (
       <div>
       <Header user={this.props.user} />
@@ -61,7 +76,7 @@ class User extends Component {
             <div className="l-body-row">
               <div>password</div>
               <div>
-                <input type="text"
+                <input type="password"
                   value={this.state.userPasswordValue}
                   onChange={this.changeInput.bind(this, 'userPasswordValue')}
                 />
@@ -70,7 +85,7 @@ class User extends Component {
             <div className="l-body-row">
               <div>password confirmation</div>
               <div>
-                <input type="text"
+                <input type="password"
                   value={this.state.userPasswordCValue}
                   onChange={this.changeInput.bind(this, 'userPasswordCValue')}
                 />
@@ -89,7 +104,10 @@ class User extends Component {
 
           <div className="l-footer">
             <div>
-              <button>cancel</button>
+              <button onClick={this.cancel.bind(this)}>cancel</button>
+            </div>
+            <div>
+              <button onClick={this.logout.bind(this)}>logout</button>
             </div>
             <div>
               <button onClick={this.save.bind(this)}>save</button>

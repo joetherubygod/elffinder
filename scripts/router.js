@@ -6,7 +6,7 @@ import messages from './components/main/messages';
 
 import User from './components/main/User';
 
-import login from './components/guest/login';
+import foshug from './components/guest/login';
 import register from './components/guest/register';
 
 
@@ -19,7 +19,7 @@ export default (
       <Route path="/messages" component={messages}/>
       <Route path="/user/:userId" component={User}/>
     </Route>
-    <Route path="/login" component={login}/>
+    <Route path="/login" component={foshug}/>
     <Route path="/register" component={register}/>
   </Router>
 );

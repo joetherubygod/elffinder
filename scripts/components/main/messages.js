@@ -21,6 +21,7 @@ class messages extends Component {
     api.createMessage(e);
   }
   render() {
+    console.log(this.props.userList.length);
     return (
       <div>
         <Header user={this.props.user} />
