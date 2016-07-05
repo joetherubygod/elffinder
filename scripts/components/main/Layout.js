@@ -5,7 +5,7 @@ import Header from './Header';
 import Section from './Section';
 import Footer from './Footer';
 
-class messages extends Component {
+class Layout extends Component {
   static propTypes = {
     isLoading: React.PropTypes.bool,
     messages: React.PropTypes.array,
@@ -20,18 +20,21 @@ class messages extends Component {
   clickAddMessage(e){
     api.createMessage(e);
   }
-  render() {
-    console.log(this.props.userList.length);
+  clickChangeAvailability(e){
+    api.updateUserList(e);
+  }
+  render(){
     return (
       <div>
         <Header user={this.props.user} />
         <Section
+          clickChangeAvailability={this.clickChangeAvailability}
           isLoading={this.props.isLoading}
-          msgs={this.props.messages}
+          messages={this.props.messages}
           user={this.props.user}
           userList={this.props.userList}
         />
-        <Footer clickAddMessage={this.clickAddMessage.bind(this)} />
+        <Footer clickAddMessage={this.clickAddMessage} />
       </div>
     );
   }
@@ -48,4 +51,4 @@ const mapStateToProps = function (store){
   };
 };
 
-export default connect(mapStateToProps)(messages);
+export default connect(mapStateToProps)(Layout);

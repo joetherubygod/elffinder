@@ -14,9 +14,6 @@ export default class Footer extends Component {
       showInput: false,
       showToggler: true
     };
-    this.clickQuickMessages = this.clickQuickMessages.bind(this);
-    this.clickToggler = this.clickToggler.bind(this);
-    this.clickAddMessage = this.clickAddMessage.bind(this);
   }
   clickQuickMessages(){
     this.setState({
@@ -40,16 +37,19 @@ export default class Footer extends Component {
   render(){
     return (
       <footer>
-        { this.state.showQuickMessages ? <FooterQuickMessages
-          clickAddMessage={this.clickAddMessage}
+        { this.state.showQuickMessages ?
+        <FooterQuickMessages
+          clickAddMessage={this.clickAddMessage.bind(this)}
           list={[{text: 'menj anyadba', key: 1}, {text: 'nem erek ra kurvara', key: 2}, {text: 'kurodj meg', key: 3}]}
         /> : null }
-        { this.state.showInput ? <FooterInput
-          quickMessagesTogglerClick={this.clickQuickMessages}
+        { this.state.showInput ?
+        <FooterInput
+          quickMessagesTogglerClick={this.clickQuickMessages.bind(this)}
           clickAddMessage={this.clickAddMessage}
         /> : null }
-        { this.state.showToggler ? <FooterToggler
-          togglerClick={this.clickToggler}
+        { this.state.showToggler ?
+        <FooterToggler
+          togglerClick={this.clickToggler.bind(this)}
         /> : null }
       </footer>
     );

@@ -15,7 +15,8 @@ class User extends Component {
       userNameValue: '',
       userPasswordValue: '',
       userPasswordCValue: '',
-      userEmailValue: ''
+      userEmailValue: '',
+      userImageValue: ''
     };
   }
   componentWillMount(){
@@ -24,7 +25,8 @@ class User extends Component {
   componentWillReceiveProps(nextProps){
     this.setState({
       userNameValue: nextProps.user.name,
-      userEmailValue: nextProps.user.email
+      userEmailValue: nextProps.user.email,
+      userImageValue: nextProps.user.image
     });
   }
   changeInput(stateName, value){
@@ -38,7 +40,8 @@ class User extends Component {
         id: this.props.user.id,
         name: this.state.userNameValue,
         password: this.state.userPasswordValue,
-        email: this.state.userEmailValue
+        email: this.state.userEmailValue,
+        image: this.state.userImageValue
       };
 
         api.updateUser(newUserData, () => {
@@ -88,6 +91,15 @@ class User extends Component {
                 <input type="password"
                   value={this.state.userPasswordCValue}
                   onChange={this.changeInput.bind(this, 'userPasswordCValue')}
+                />
+              </div>
+            </div>
+            <div className="l-body-row">
+              <div>pic</div>
+              <div>
+                <input type="text"
+                  value={this.state.userImageValue}
+                  onChange={this.changeInput.bind(this, 'userImageValue')}
                 />
               </div>
             </div>

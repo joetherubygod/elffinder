@@ -1,7 +1,7 @@
 import store from '../store';
 import {createMessageAction, readMessagesAction, setLoadingState} from '../actions/messagesActions';
 import {loginUserAction, readUserAction, updateUserAction, logoutUserAction} from '../actions/userActions';
-import {readUserListAction} from '../actions/userListActions';
+import {readUserListAction, updateUserListAction} from '../actions/userListActions';
 
 export function createMessage(text){              // cookiek (encrypted user_id) tovabbkuldese
   fetch('http://localhost:4567/messages.json', {
@@ -68,10 +68,22 @@ export function updateUser(user, redirect){
     });
 }
 
-export function readUserList(userList){
+export function readUserList(){
   fetch('http://localhost:4567/userlist.json', { credentials: 'include' }).
     then( (r) => r.json() ).
     then( (data) => {
       store.dispatch(readUserListAction(data));
+    });
+}
+
+export function updateUserList(userid){
+  fetch(`http://localhost:4567/userlist.json`, {
+    credentials: 'include',
+    method: 'POST',
+    body: JSON.stringify({ id: userid }) }).
+    then( (r) => r.json() ).
+    then( (data) => {
+      console.log(data);
+      store.dispatch(updateUserListAction(userid));
     });
 }

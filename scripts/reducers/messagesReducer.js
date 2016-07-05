@@ -12,7 +12,8 @@ const messagesReducer = function (state = initialState, action){
         messages: action.messages,
         isLoading: false
       };
-      case types.CREATE_MESSAGE:
+
+    case types.CREATE_MESSAGE:
         let messages = [...state.messages, action.message];
         return Object.assign({}, state, { messages: messages });
 

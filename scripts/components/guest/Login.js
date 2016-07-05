@@ -61,7 +61,7 @@ class Login extends Component {
 
           <div className="l-footer">
             <div>
-              <button>cancel</button>
+              <button>register</button>
             </div>
             <div>
               <a>forgot password</a>

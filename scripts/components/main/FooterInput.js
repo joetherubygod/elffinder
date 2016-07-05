@@ -10,8 +10,6 @@ export default class Input extends Component {
     this.state = {
       value: ''
     };
-    this.changeInput = this.changeInput.bind(this);
-    this.clickAddMessage = this.clickAddMessage.bind(this);
   }
   changeInput(event){
     this.setState({
@@ -28,10 +26,10 @@ export default class Input extends Component {
           <button className="btn btn-default" onClick={this.props.quickMessagesTogglerClick} >uzenetek</button>
         </div>
         <div className="input-center">
-          <input className="form-control" type="text" value={this.state.value} onChange={this.changeInput} />
+          <input className="form-control" type="text" value={this.state.value} onChange={this.changeInput.bind(this)} />
         </div>
         <div className="input-right">
-          <button className="btn btn-default" onClick={this.clickAddMessage}>></button>
+          <button className="btn btn-default" onClick={this.clickAddMessage.bind(this)}>></button>
         </div>
       </div>
     );

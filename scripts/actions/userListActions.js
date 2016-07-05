@@ -6,3 +6,10 @@ export function readUserListAction(userList){
     userList: userList
   };
 }
+
+export function updateUserListAction(userid){
+  return {
+    type: types.UPDATE_USERLIST,
+    userid: userid
+  };
+}

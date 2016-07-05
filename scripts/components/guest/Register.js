@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 import * as api from '../../api/api';
 
-export default class register extends Component {
+export default class Register extends Component {
   constructor(props){
     super(props);
 

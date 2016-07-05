@@ -1,25 +1,21 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import main from './main';
-import messages from './components/main/messages';
+import Main from './Main';
 
+import Layout from './components/main/Layout';
 import User from './components/main/User';
-
-import foshug from './components/guest/login';
-import register from './components/guest/register';
-
-
-
+import Login from './components/guest/Login';
+import Register from './components/guest/Register';
 
 export default (
   <Router history={browserHistory}>
-    <Route path="/" component={main}>
-      <IndexRoute component={messages}/>
-      <Route path="/messages" component={messages}/>
+    <Route path="/" component={Main}>
+      <IndexRoute component={Layout}/>
+      <Route path="/messages" component={Layout}/>
       <Route path="/user/:userId" component={User}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
     </Route>
-    <Route path="/login" component={foshug}/>
-    <Route path="/register" component={register}/>
   </Router>
 );

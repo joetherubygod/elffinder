@@ -1,36 +1,38 @@
 import React, {Component} from 'react';
 import SectionDate from './SectionDate';
+import SectionAvailability from './SectionAvailability';
 import SectionTable from './SectionTable';
 import SectionMessages from './SectionMessages';
-import SectionAvailability from './SectionAvailability';
-
 
 export default class Section extends Component {
   static propTypes = {
     isLoading: React.PropTypes.bool.isRequired,
-    msgs: React.PropTypes.array,
+    messages: React.PropTypes.array,
     userList: React.PropTypes.array,
-    user: React.PropTypes.object
+    user: React.PropTypes.object,
+    clickChangeAvailability: React.PropTypes.func
   };
-  render() {
-    let list = this.props.userList.map((u) => {
-      return (
-        <tr key={u.id}>
-          <td>
-            {u.name}
-          </td>
-          <td>
-            { (u.id === this.props.user.id) ?
-              <SectionAvailability available={u.availability} /> : u.availability ? 'leszek' : 'nem leszek' }
-          </td>
-        </tr>
-      );
-    });
+  clickChangeAvailability(e){
+    this.props.clickChangeAvailability(e);
+  }
+  render(){
     return (
       <section>
-        <SectionDate />
-        <SectionTable list={list} />
-        <SectionMessages isLoading={this.props.isLoading} msgs={this.props.msgs} userList={this.props.userList} />
+        <SectionDate/>
+        <SectionAvailability
+          user={this.props.user}
+          userList={this.props.userList}
+          clickChangeAvailability={this.clickChangeAvailability.bind(this)}
+        />
+        <SectionTable
+          user={this.props.user}
+          userList={this.props.userList}
+        />
+        <SectionMessages
+          isLoading={this.props.isLoading}
+          messages={this.props.messages}
+          userList={this.props.userList}
+        />
       </section>
     );
   }

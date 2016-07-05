@@ -7,11 +7,11 @@ export default class QuickMessages extends Component {
   };
   render() {
     let list = this.props.list.map((e) => {
-      let clicker = () => {
+      let clickAddMessage = () => {
         this.props.clickAddMessage(e.text);
       };
       return (
-        <button type="button" className="list-group-item" key={e.key} onClick={clicker}>{e.text}</button>
+        <button type="button" className="list-group-item" key={e.key} onClick={clickAddMessage}>{e.text}</button>
       );
     });
     return (

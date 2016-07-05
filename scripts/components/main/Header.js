@@ -12,10 +12,10 @@ export default class Header extends Component {
           <h1>vagy ma?</h1>
         </div>
         <div className="profile">
-            <img src={this.props.user.image} />
-            <Link to={`/user/${this.props.user.id}`}>
-              <p>{this.props.user.name}</p>
-            </Link>
+          <img src={this.props.user.image}/>
+          <Link to={`/user/${this.props.user.id}`}>
+            <p>{this.props.user.name}</p>
+          </Link>
         </div>
       </header>
     );
