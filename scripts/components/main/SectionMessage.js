@@ -11,11 +11,11 @@ export default class RenderMessages extends Component {
       return null;
     }
     let list = this.props.messages.map((eachMessage) => {
-      let seggfej = this.props.userList.filter(segg => segg.id === eachMessage.user_id);
+      let user = this.props.userList.filter(filteredUser => filteredUser.id === eachMessage.user_id);
       let date = moment(eachMessage.date, 'YYYY-MM-DD HH:mm:ss').fromNow();
       return (
         <div key={eachMessage.id} className="message">
-          <h3>{seggfej[0].name} - {date}</h3>
+          <h3>{user[0].name} - {date}</h3>
           <p>{eachMessage.text}</p>
           <hr/>
         </div>

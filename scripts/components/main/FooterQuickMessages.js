@@ -11,14 +11,14 @@ export default class QuickMessages extends Component {
         this.props.clickAddMessage(e.text);
       };
       return (
-        <button type="button" className="list-group-item" key={e.key} onClick={clickAddMessage}>{e.text}</button>
+        <li className="list-group-item" key={e.key} onClick={clickAddMessage}>{e.text}</li>
       );
     });
     return (
       <div className="quickmessages">
-        <div className="list-group">
+        <ul className="list-group">
           {list}
-        </div>
+        </ul>
       </div>
     );
   }

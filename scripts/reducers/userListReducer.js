@@ -10,10 +10,13 @@ const userListReducer = function (state = initialState, action){
       return Object.assign({}, state, { userList: action.userList });
 
     case types.UPDATE_USERLIST:
-      let index = state.userList.findIndex(a => a.id === action.userid);
-      let newUserList = state.userList;
-      newUserList[index].availability = !newUserList[index].availability;
-      return Object.assign({}, state, { userList: newUserList });
+    //  let index = state.userList.findIndex(a => a.id === action.userid);
+    //  let newUserList = state.userList;
+    //  newUserList[index].availability = !newUserList[index].availability;
+      let user = state.userList.find((a) => a.id === action.userid);
+      user.availability = !user.availability;
+      let userList = [...state.userList, user];
+      return Object.assign({}, state, { userList: userList });
   }
   return state;
 };

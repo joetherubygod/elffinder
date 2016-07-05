@@ -100,10 +100,16 @@ footer {
 }
 
 footer .quickmessages {
+  background-color: white;
+  border: 1px solid #cccccc;
   position: fixed;
-  bottom: 30px;
+  bottom: 35px;
   left: 10px;
   width: 180px;
+}
+
+footer li {
+  padding-top: 10px;
 }
 
 footer .input {

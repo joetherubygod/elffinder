@@ -10,11 +10,15 @@ export default class SectionAvailability extends Component {
     this.props.clickChangeAvailability(e);
   }
   render() {
+    if (this.props.userList.length === 0){
+      return null;
+    }
     return (
       <div className="availability">
-        {this.props.userList.filter((user) => user.id === this.props.user.id).availability ?
+        { this.props.userList.filter((user) => user.id === this.props.user.id)[0].availability ?
         <button onClick={this.props.clickChangeAvailability.bind(this, this.props.user.id)}>leszek</button> :
-        <button onClick={this.props.clickChangeAvailability.bind(this, this.props.user.id)}>nem leszek</button>}
+        <button onClick={this.props.clickChangeAvailability.bind(this, this.props.user.id)}>nem leszek</button>
+        }
       </div>
     );
   }
