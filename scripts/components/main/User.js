@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {browserHistory} from 'react-router';
 import * as api from '../../api/api';
 import Header from './Header';
-
+import Error from '../Error';
 
 class User extends Component {
   static propTypes = {
@@ -12,6 +12,8 @@ class User extends Component {
   constructor(props){
     super(props);
     this.state = {
+      errors: '',
+
       userNameValue: '',
       userPasswordValue: '',
       userPasswordCValue: '',
@@ -35,7 +37,7 @@ class User extends Component {
     this.setState(hash);
   }
   save(){
-    if (this.state.userPasswordValue === this.state.userPasswordCValue) {
+    if ((this.state.userPasswordValue !== '') && this.state.userPasswordValue === this.state.userPasswordCValue) {
       let newUserData = {
         id: this.props.user.id,
         name: this.state.userNameValue,
@@ -46,6 +48,16 @@ class User extends Component {
 
         api.updateUser(newUserData, () => {
         browserHistory.push('/');
+      });
+    }
+    else if ((this.state.userPasswordValue === '') && this.state.userPasswordValue === this.state.userPasswordCValue) {
+      this.setState({
+        errors: 'passwordnull'
+      });
+    }
+    else {
+      this.setState({
+        errors: 'passwordmiss'
       });
     }
   }
@@ -62,6 +74,9 @@ class User extends Component {
       <div>
       <Header user={this.props.user} />
       <div className="l">
+
+        <Error errors={this.state.errors} />
+
         <div className="l-container">
 
           <div className="l-header">profile</div>
@@ -81,6 +96,7 @@ class User extends Component {
               <div>
                 <input type="password"
                   value={this.state.userPasswordValue}
+                  className={this.state.errors}
                   onChange={this.changeInput.bind(this, 'userPasswordValue')}
                 />
               </div>
@@ -90,6 +106,7 @@ class User extends Component {
               <div>
                 <input type="password"
                   value={this.state.userPasswordCValue}
+                  className={this.state.errors}
                   onChange={this.changeInput.bind(this, 'userPasswordCValue')}
                 />
               </div>
@@ -127,6 +144,7 @@ class User extends Component {
           </div>
 
         </div>
+
       </div>
       </div>
     );

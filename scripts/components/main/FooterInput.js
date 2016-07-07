@@ -16,8 +16,11 @@ export default class Input extends Component {
       value: event.target.value
     });
   }
-  clickAddMessage(){
-    this.props.clickAddMessage(this.state.value);
+  clickAddMessage(){ // KURVA if scope this and that
+    if (this.state.value !== ''){
+      console.log(this);
+      this.props.clickAddMessage(this.state.value);
+    }
   }
   render() {
     return (

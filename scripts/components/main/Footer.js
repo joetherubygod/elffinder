@@ -5,7 +5,8 @@ import FooterToggler from './FooterToggler';
 
 export default class Footer extends Component {
   static propTypes = {
-    clickAddMessage: React.PropTypes.func
+    clickAddMessage: React.PropTypes.func,
+    quickMessages: React.PropTypes.array
   };
   constructor(props){
     super(props);
@@ -40,7 +41,7 @@ export default class Footer extends Component {
         { this.state.showQuickMessages ?
         <FooterQuickMessages
           clickAddMessage={this.clickAddMessage.bind(this)}
-          list={[{text: 'menj anyadba', key: 1}, {text: 'nem erek ra kurvara', key: 2}, {text: 'kurodj meg', key: 3}]}
+          quickMessages={this.props.quickMessages}
         /> : null }
         { this.state.showInput ?
         <FooterInput

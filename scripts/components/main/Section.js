@@ -10,6 +10,7 @@ export default class Section extends Component {
     messages: React.PropTypes.array,
     userList: React.PropTypes.array,
     user: React.PropTypes.object,
+    quickMessages: React.PropTypes.array,
     clickChangeAvailability: React.PropTypes.func
   };
   clickChangeAvailability(e){

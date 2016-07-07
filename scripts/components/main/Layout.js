@@ -10,12 +10,14 @@ class Layout extends Component {
     isLoading: React.PropTypes.bool,
     messages: React.PropTypes.array,
     user: React.PropTypes.object,
-    userList: React.PropTypes.array
+    userList: React.PropTypes.array,
+    quickMessages: React.PropTypes.array
   };
   componentWillMount(){
     api.readUser();
     api.readMessages();
     api.readUserList();
+    api.readQuickMessages();
   }
   clickAddMessage(e){
     api.createMessage(e);
@@ -34,7 +36,10 @@ class Layout extends Component {
           user={this.props.user}
           userList={this.props.userList}
         />
-        <Footer clickAddMessage={this.clickAddMessage} />
+        <Footer
+          clickAddMessage={this.clickAddMessage}
+          quickMessages={this.props.quickMessages}
+        />
       </div>
     );
   }
@@ -47,7 +52,8 @@ const mapStateToProps = function (store){
     messages: store.messagesStore.messages,
     isLoading: store.messagesStore.isLoading,
     userList: store.userListStore.userList,
-    user: store.userStore.user
+    user: store.userStore.user,
+    quickMessages: store.quickMessagesStore.quickMessages
   };
 };
 

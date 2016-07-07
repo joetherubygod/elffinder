@@ -7,6 +7,7 @@ import Layout from './components/main/Layout';
 import User from './components/main/User';
 import Login from './components/guest/Login';
 import Register from './components/guest/Register';
+import Forgot from './components/guest/Forgot';
 
 export default (
   <Router history={browserHistory}>
@@ -16,6 +17,7 @@ export default (
       <Route path="/user/:userId" component={User}/>
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
+      <Route path="/forgot" component={Forgot}/>
     </Route>
   </Router>
 );

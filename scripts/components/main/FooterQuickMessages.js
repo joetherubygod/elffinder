@@ -3,15 +3,16 @@ import React, {Component} from 'react';
 export default class QuickMessages extends Component {
   static propTypes = {
     list: React.PropTypes.array,
-    clickAddMessage: React.PropTypes.func
+    clickAddMessage: React.PropTypes.func,
+    quickMessages: React.PropTypes.array
   };
   render() {
-    let list = this.props.list.map((e) => {
+    let list = this.props.quickMessages.map((e) => {
       let clickAddMessage = () => {
         this.props.clickAddMessage(e.text);
       };
       return (
-        <li className="list-group-item" key={e.key} onClick={clickAddMessage}>{e.text}</li>
+        <li className="list-group-item" key={e.id} onClick={clickAddMessage}>{e.text}</li>
       );
     });
     return (

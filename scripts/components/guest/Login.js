@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
 import * as api from '../../api/api';
 
 class Login extends Component {
@@ -61,10 +62,10 @@ class Login extends Component {
 
           <div className="l-footer">
             <div>
-              <button>register</button>
+              <Link to={'/register'}><button>register</button></Link>
             </div>
             <div>
-              <a>forgot password</a>
+              <Link to={'/forgot'}>forgot password</Link>
               <button onClick={this.login.bind(this)}>login</button>
             </div>
           </div>

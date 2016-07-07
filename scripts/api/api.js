@@ -2,6 +2,26 @@ import store from '../store';
 import {createMessageAction, readMessagesAction, setLoadingState} from '../actions/messagesActions';
 import {loginUserAction, readUserAction, updateUserAction, logoutUserAction} from '../actions/userActions';
 import {readUserListAction, updateUserListAction} from '../actions/userListActions';
+import {readQuickMessagesAction} from '../actions/quickMessagesActions';
+
+export function readQuickMessages(){
+  fetch('http://localhost:4567/quickmsgs.json', { credentials: 'include' }).
+    then( (f) => f.json() ).
+    then( (data)=> {
+      store.dispatch(readQuickMessagesAction(data));
+    });
+}
+
+export function forgotPassword(email){              // cookiek (encrypted user_id) tovabbkuldese
+  fetch('http://localhost:4567/forgot_pw.json', {
+    credentials: 'include',
+    method: 'POST',
+    body: JSON.stringify({ email: email }) }).
+    then( (r) => r.json() ).
+    then( (data) => {
+      console.log(data);
+    });
+}
 
 export function createMessage(text){              // cookiek (encrypted user_id) tovabbkuldese
   fetch('http://localhost:4567/messages.json', {
